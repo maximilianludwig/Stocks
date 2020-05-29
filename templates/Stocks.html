@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+
+  <title>My Stock Page</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+
+</head>
+
+<body class="idk">
+    {% include 'navbar.html' %}
+
+    <div style="background-color: red" class="container">
+        <table class="table table-dark table-hover">
+            <thead>
+              <tr>
+                <th>Stock Name</th>
+                <th>Indikator</th>
+                <th>Decision for today</th>
+              </tr>
+            </thead>
+            <tbody>
+            {%  for stock in stocks %}
+                <tr>
+                    <td>{{stock.name}}</td>
+                    <td>{{stock.indicator}}</td>
+                    <td>{{stock.decision}}</td>
+                </tr>
+            {% endfor %} 
+            </tbody>
+          </table>
+       
+
+    </div>
+    
+</body>
+</html>
